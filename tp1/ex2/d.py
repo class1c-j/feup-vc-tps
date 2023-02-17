@@ -5,6 +5,8 @@ IMAGE_PATH = "../../images/fruits.jpg"
 
 image = cv2.imread(IMAGE_PATH)
 
+file_name = IMAGE_PATH.rsplit("/", maxsplit=1)[-1]
+
 channels = image.shape[2]
 PROBABILITY = 0.1
 
@@ -12,7 +14,7 @@ result = image.copy()
 
 cv2.imshow("Image", image)
 
-if len(image.shape) == 2: # Grayscale image
+if len(image.shape) == 2:  # Grayscale image
     pepper = 0
     salt = 255
 else:
@@ -28,6 +30,8 @@ result[probs < (PROBABILITY / 2)] = pepper
 result[probs > 1 - (PROBABILITY / 2)] = salt
 
 cv2.imshow("Result", result)
+
+cv2.imwrite("../out/noisy_" + file_name, result)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
