@@ -8,7 +8,6 @@ if not capture.isOpened():
     sys.exit()
 
 while True:
-
     # Capture frame by frame
     ret, frame = capture.read()
 
