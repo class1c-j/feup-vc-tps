@@ -23,7 +23,7 @@ in a window, whose name is the name of the file. Test whether the image was
 successfully read. Display the height and width of the image, on the console.
 %%"""
 
-IMAGE_PATH = "../images/watershed_coins.jpg"
+IMAGE_PATH = "../../images/watershed_coins.jpg"
 
 file_name = IMAGE_PATH.rsplit("/", maxsplit=1)[-1]
 image = cv2.imread(IMAGE_PATH)
